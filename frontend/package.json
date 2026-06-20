@@ -1,1 +1,27 @@
-
+{
+"name": "second-chance-frontend",
+"private": true,
+"version": "1.0.0",
+"type": "module",
+"description": "Frontend for Second Chance Marketplace",
+"author": "Aiden Vihaan",
+"license": "MIT",
+"scripts": {
+"dev": "vite",
+"build": "vite build",
+"preview": "vite preview",
+"lint": "eslint ."
+},
+"dependencies": {
+"axios": "^1.11.0",
+"react": "^19.1.1",
+"react-dom": "^19.1.1",
+"react-router-dom": "^7.8.2"
+},
+"devDependencies": {
+"@vitejs/plugin-react": "^5.0.2",
+"eslint": "^9.34.0",
+"eslint-plugin-react": "^7.37.5",
+"vite": "^7.1.3"
+}
+}
