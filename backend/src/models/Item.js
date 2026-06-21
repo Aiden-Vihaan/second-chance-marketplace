@@ -1,39 +1,52 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema(
+const itemSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: true,
-      trim: true
-    },
-
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true
-    },
-
-    password: {
+    title: {
       type: String,
       required: true
     },
 
-    role: {
+    description: {
       type: String,
-      enum: ["user", "admin"],
-      default: "user"
+      required: true
     },
 
-    avatar: {
+    price: {
+      type: Number,
+      required: true
+    },
+
+    category: {
       type: String,
-      default: ""
+      required: true
+    },
+
+    condition: {
+      type: String,
+      enum: [
+        "New",
+        "Like New",
+        "Good",
+        "Fair"
+      ],
+      default: "Good"
+    },
+
+    images: [String],
+
+    seller: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
     },
 
     location: {
-      type: String,
-      default: ""
+      type: String
+    },
+
+    isSold: {
+      type: Boolean,
+      default: false
     }
   },
   {
@@ -42,6 +55,6 @@ const userSchema = new mongoose.Schema(
 );
 
 export default mongoose.model(
-  "User",
-  userSchema
+  "Item",
+  itemSchema
 );
