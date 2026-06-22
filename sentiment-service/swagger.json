@@ -1,1 +1,96 @@
-
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Second Chance Marketplace Sentiment Service",
+    "description": "Microservice responsible for sentiment analysis of reviews and comments.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5001"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Sentiment",
+      "description": "Sentiment Analysis Endpoints"
+    }
+  ],
+  "paths": {
+    "/api/sentiment/analyze": {
+      "post": {
+        "tags": [
+          "Sentiment"
+        ],
+        "summary": "Analyze text sentiment",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SentimentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sentiment analyzed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SentimentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health Check",
+        "responses": {
+          "200": {
+            "description": "Service is running"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SentimentRequest": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "example": "This product is amazing and worth every rupee."
+          }
+        }
+      },
+      "SentimentResponse": {
+        "type": "object",
+        "properties": {
+          "sentiment": {
+            "type": "string",
+            "example": "positive"
+          },
+          "score": {
+            "type": "number",
+            "example": 0.87
+          }
+        }
+      }
+    }
+  }
+}
