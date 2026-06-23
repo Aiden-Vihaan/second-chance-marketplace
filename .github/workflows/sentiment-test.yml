@@ -1,0 +1,28 @@
+name: Sentiment Service Tests
+
+on:
+  push:
+    paths:
+      - "sentiment-service/**"
+  pull_request:
+    paths:
+      - "sentiment-service/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: sentiment-service
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
+
+      - run: npm test
