@@ -1,21 +1,44 @@
-# System Architecture
+# Second Chance Marketplace Architecture
 
 ## Overview
 
-Second Chance Marketplace is a full-stack marketplace platform for buying and selling second-hand products.
+Second Chance Marketplace is a full-stack web application that enables users to buy and sell second-hand products.
 
-The system follows a microservice architecture consisting of:
+The application follows a microservice-based architecture.
 
-- Frontend (React + Vite)
-- Backend API (Node.js + Express)
-- Sentiment Analysis Microservice
-- MongoDB Database
+## System Components
 
-## Architecture Diagram
+### Frontend
 
-Frontend
+- React
+- Vite
+- React Router
+- Axios
+
+### Backend API
+
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+
+### Sentiment Service
+
+- Node.js
+- Express.js
+- NLP Sentiment Analysis
+
+### Database
+
+- MongoDB Atlas
+
+## Architecture Flow
+
+User
 ↓
-Backend API
+Frontend (React)
+↓
+Backend API (Express)
 ↓
 MongoDB
 
@@ -23,33 +46,17 @@ Backend API
 ↓
 Sentiment Service
 
-## Components
-
-### Frontend
-
-- User Interface
-- Authentication
-- Product Listing
-- Wishlist
-- Profile Management
-
-### Backend
-
-- Authentication
-- Product Management
-- Reviews
-- Wishlist
-- Search
-
-### Sentiment Service
-
-- Review Analysis
-- Sentiment Classification
-- Recommendation Support
-
 ## Security
 
 - JWT Authentication
 - Password Hashing
 - Input Validation
 - Rate Limiting
+- CORS Protection
+
+## Future Improvements
+
+- Redis Caching
+- Elasticsearch
+- AI Recommendations
+- Real-time Chat
