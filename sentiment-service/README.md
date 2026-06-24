@@ -50,3 +50,5 @@ sentiment-service/
 ├── server.js
 ├── package.json
 └── swagger.json
+
+## Author: Aiden Vihaan
